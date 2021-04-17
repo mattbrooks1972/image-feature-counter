@@ -1,5 +1,8 @@
 document.getElementById('image-input').addEventListener('input', display_image);
 document.getElementById('image-display').addEventListener('load', fit_image_to_canvas);
+document.getElementById('input-image-opacity-slider').addEventListener('input', (event) => {
+	document.getElementById('image-display').style.opacity = event.target.value + '%';
+});
 
 let canvas = document.getElementById('image-canvas');
 let ctx = canvas.getContext('2d');
