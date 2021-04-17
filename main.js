@@ -17,4 +17,7 @@ function fit_image_to_canvas(event) {
 	imageCanvas.width = event.target.naturalWidth;
 }
 
-function set_mouse_pos(event) {}
+function set_mouse_pos(event) {
+	mousePos.x = event.clientX;
+	mousePos.y = event.clientY;
+}
