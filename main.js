@@ -20,8 +20,9 @@ function fit_image_to_canvas(event) {
 }
 
 function set_mouse_pos(event) {
-	mousePos.x = event.clientX;
-	mousePos.y = event.clientY;
+	var boundingRect = canvas.getBoundingClientRect();
+	mousePos.x = event.clientX - boundingRect.left;
+	mousePos.y = event.clientY - boundingRect.top;
 }
 
 function mark_canvas(event) {
