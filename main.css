@@ -1,0 +1,16 @@
+#image-container {
+	display: grid;
+	grid:
+		"img" auto
+		/auto
+	;
+}
+
+#image-display {
+	grid-area: img;
+}
+
+#image-canvas {
+	grid-area: img;
+	z-index: 1;
+}
