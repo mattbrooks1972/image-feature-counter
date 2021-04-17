@@ -27,10 +27,17 @@ function set_mouse_pos(event) {
 
 function mark_canvas(event) {
 	draw_marker();
+	increment_counter();
 }
 
 function draw_marker() {
 	ctx.beginPath();
 	ctx.rect(mousePos.x, mousePos.y, 4, 4);
 	ctx.fill();
+}
+
+function increment_counter() {
+	let counter = document.getElementById('mark-counter');
+	let count = parseInt(counter.innerHTML) + 1;
+	counter.innerHTML = count;
 }
