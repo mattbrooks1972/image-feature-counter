@@ -6,6 +6,8 @@ let ctx = canvas.getContext('2d');
 
 let mousePos = {x: 0, y: 0};
 canvas.addEventListener('mousemove', set_mouse_pos);
+canvas.addEventListener('click', mark_canvas);
+
 function display_image(event) {
 	let imageDisplay = document.getElementById('image-display');
 	imageDisplay.src = URL.createObjectURL(event.target.files[0]);
@@ -20,4 +22,14 @@ function fit_image_to_canvas(event) {
 function set_mouse_pos(event) {
 	mousePos.x = event.clientX;
 	mousePos.y = event.clientY;
+}
+
+function mark_canvas(event) {
+	draw_marker();
+}
+
+function draw_marker() {
+	ctx.beginPath();
+	ctx.rect(mousePos.x, mousePos.y, 4, 4);
+	ctx.fill();
 }
