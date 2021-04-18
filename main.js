@@ -6,10 +6,12 @@ document.getElementById('input-image-opacity-slider').addEventListener('input', 
 document.getElementById('mark-color').addEventListener('input', (event) => {
 	marker.color = event.target.value;
 	render_canvas();
+	render_counter();
 });
 document.getElementById('mark-undo').addEventListener('click', (event) => {
 	marker.marks.pop();
 	render_canvas();
+	render_counter();
 });
 
 let canvas = document.getElementById('image-canvas');
@@ -38,8 +40,8 @@ function set_mouse_pos(event) {
 
 function mark_canvas(event) {
 	push_mark();
-	increment_counter();
 	render_canvas();
+	render_counter();
 }
 
 let marker = {
@@ -61,8 +63,7 @@ function render_canvas() {
 	}
 }
 
-function increment_counter() {
+function render_counter() {
 	let counter = document.getElementById('mark-counter');
-	let count = parseInt(counter.innerHTML) + 1;
-	counter.innerHTML = count;
+	counter.innerHTML = marker.marks.length;
 }
