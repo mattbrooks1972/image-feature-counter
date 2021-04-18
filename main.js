@@ -47,6 +47,7 @@ function render_canvas() {
 	ctx.clearRect(0, 0, canvas.width, canvas.height);
 	for(let i = 0; i < marker.marks.length; i++) {
 		ctx.beginPath();
+		ctx.fillStyle = marker.color;
 		ctx.rect(marker.marks[i].x, marker.marks[i].y, 4, 4);
 		ctx.fill();
 	}
