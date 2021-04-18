@@ -3,6 +3,10 @@ document.getElementById('image-display').addEventListener('load', fit_image_to_c
 document.getElementById('input-image-opacity-slider').addEventListener('input', (event) => {
 	document.getElementById('image-display').style.opacity = event.target.value + '%';
 });
+document.getElementById('mark-color').addEventListener('input', (event) => {
+	marker.color = event.target.value;
+	render_canvas();
+});
 
 let canvas = document.getElementById('image-canvas');
 let ctx = canvas.getContext('2d');
