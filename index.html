@@ -6,8 +6,20 @@
 </head>
 <body>
 	<input id = "image-input" type = "file" accept = "image/*"/>
-	<img id = "image-display"/>
-	<canvas id = "image-canvas"></canvas>
-	<span id = "mark-counter">0</span>
+	<input id = "input-image-opacity-slider" type = "range" min = "0" max = "100" value = "80"/>
+	<div id = "image-container">
+		<img id = "image-display"/>
+		<canvas id = "image-canvas"></canvas>
+	</div>
+	<div id = "mark-container">
+		<span id = "mark-counter">0</span>
+		<input id = "mark-color" type = "color"/>
+		<button id = "mark-undo" type = "button">Undo</button>
+		<select id = "mark-size">
+			<option value = "small">Small</option>
+			<option value = "medium" selected>Medium</option>
+			<option value = "large">Large</option>
+		</select>
+	</div>
 </body>
 </html>

@@ -1,5 +1,21 @@
 document.getElementById('image-input').addEventListener('input', display_image);
 document.getElementById('image-display').addEventListener('load', fit_image_to_canvas);
+document.getElementById('input-image-opacity-slider').addEventListener('input', (event) => {
+	document.getElementById('image-display').style.opacity = event.target.value + '%';
+});
+document.getElementById('mark-color').addEventListener('input', (event) => {
+	marker.color = event.target.value;
+	render_canvas();
+});
+document.getElementById('mark-undo').addEventListener('click', (event) => {
+	marker.marks.pop();
+	render_canvas();
+	render_counter();
+});
+document.getElementById('mark-size').addEventListener('input', (event) => {
+	marker.size = event.target.value;
+	render_canvas();
+});
 
 let canvas = document.getElementById('image-canvas');
 let ctx = canvas.getContext('2d');
@@ -26,18 +42,47 @@ function set_mouse_pos(event) {
 }
 
 function mark_canvas(event) {
-	draw_marker();
-	increment_counter();
+	push_mark();
+	render_canvas();
+	render_counter();
 }
 
-function draw_marker() {
-	ctx.beginPath();
-	ctx.rect(mousePos.x, mousePos.y, 4, 4);
-	ctx.fill();
+let marker = {
+	marks: [],
+	color: '#000000',
+	size: 'medium'
 }
 
-function increment_counter() {
+function push_mark() {
+	marker.marks.push({...mousePos});
+};
+
+function render_canvas() {
+	ctx.clearRect(0, 0, canvas.width, canvas.height);
+	let rect = {h: 0, w: 0};
+	switch(marker.size) {
+		case 'small':
+			rect.h = 2;
+			rect.w = 2;
+			break;
+		case 'medium':
+			rect.h = 4;
+			rect.w = 4;
+			break;
+		case 'large':
+			rect.h = 8;
+			rect.w = 8;
+			break;
+	}
+	for(let i = 0; i < marker.marks.length; i++) {
+		ctx.beginPath();
+		ctx.fillStyle = marker.color;
+		ctx.rect(marker.marks[i].x, marker.marks[i].y, rect.h, rect.w);
+		ctx.fill();
+	}
+}
+
+function render_counter() {
 	let counter = document.getElementById('mark-counter');
-	let count = parseInt(counter.innerHTML) + 1;
-	counter.innerHTML = count;
+	counter.innerHTML = marker.marks.length;
 }
