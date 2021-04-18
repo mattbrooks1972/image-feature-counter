@@ -6,12 +6,15 @@ document.getElementById('input-image-opacity-slider').addEventListener('input', 
 document.getElementById('mark-color').addEventListener('input', (event) => {
 	marker.color = event.target.value;
 	render_canvas();
-	render_counter();
 });
 document.getElementById('mark-undo').addEventListener('click', (event) => {
 	marker.marks.pop();
 	render_canvas();
 	render_counter();
+});
+document.getElementById('mark-size').addEventListener('input', (event) => {
+	marker.size = event.target.value;
+	render_canvas();
 });
 
 let canvas = document.getElementById('image-canvas');
@@ -46,7 +49,8 @@ function mark_canvas(event) {
 
 let marker = {
 	marks: [],
-	color: '#000000'
+	color: '#000000',
+	size: 'medium'
 }
 
 function push_mark() {
@@ -55,9 +59,8 @@ function push_mark() {
 
 function render_canvas() {
 	ctx.clearRect(0, 0, canvas.width, canvas.height);
-	let markSize = document.getElementById('mark-size').value;
 	let rect = {h: 0, w: 0};
-	switch(markSize) {
+	switch(marker.size) {
 		case 'small':
 			rect.h = 2;
 			rect.w = 2;
