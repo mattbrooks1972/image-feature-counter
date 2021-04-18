@@ -7,6 +7,10 @@ document.getElementById('mark-color').addEventListener('input', (event) => {
 	marker.color = event.target.value;
 	render_canvas();
 });
+document.getElementById('mark-undo').addEventListener('click', (event) => {
+	marker.marks.pop();
+	render_canvas();
+});
 
 let canvas = document.getElementById('image-canvas');
 let ctx = canvas.getContext('2d');
