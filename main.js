@@ -34,11 +34,23 @@ function mark_canvas(event) {
 	render_canvas();
 }
 
+let marker = {
+	marks: [],
+	color: '#000000'
 }
 
-push_mark() {};
+function push_mark() {
+	marker.marks.push({...mousePos});
+};
 
-render_canvas() {}
+function render_canvas() {
+	ctx.clearRect(0, 0, canvas.width, canvas.height);
+	for(let i = 0; i < marker.marks.length; i++) {
+		ctx.beginPath();
+		ctx.rect(marker.marks[i].x, marker.marks[i].y, 4, 4);
+		ctx.fill();
+	}
+}
 
 function increment_counter() {
 	let counter = document.getElementById('mark-counter');
