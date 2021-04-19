@@ -8,21 +8,29 @@
 	<header>
 		<a href = "https://github.com/mattbrooks1972/image-feature-counter">GitHub Repository</a>
 	</header>
-	<input id = "image-input" type = "file" accept = "image/*"/>
-	<input id = "input-image-opacity-slider" type = "range" min = "0" max = "100" value = "80"/>
+	<label>Image Input
+		<input id = "image-input" type = "file" accept = "image/*"/>
+	</label>
+	<label>Image Opacity
+		<input id = "input-image-opacity-slider" type = "range" min = "0" max = "100" value = "80"/>
+	</label>
 	<div id = "image-container">
 		<img id = "image-display"/>
 		<canvas id = "image-canvas"></canvas>
 	</div>
 	<div id = "mark-container">
 		<span id = "mark-counter">0</span>
-		<input id = "mark-color" type = "color"/>
+		<label>Mark Color
+			<input id = "mark-color" type = "color"/>
+		</label>
 		<button id = "mark-undo" type = "button">Undo</button>
-		<select id = "mark-size">
-			<option value = "small">Small</option>
-			<option value = "medium" selected>Medium</option>
-			<option value = "large">Large</option>
-		</select>
+		<label>Mark Size
+			<select id = "mark-size">
+				<option value = "small">Small</option>
+				<option value = "medium" selected>Medium</option>
+				<option value = "large">Large</option>
+			</select>
+		</label>
 	</div>
 </body>
 </html>
