@@ -16,6 +16,13 @@ document.getElementById('mark-size').addEventListener('input', (event) => {
 	marker.size = event.target.value;
 	render_canvas();
 });
+document.addEventListener('keydown', (event) => {
+	if(event.ctrlKey && event.key == 'z') {
+		marker.marks.pop();
+		render_canvas();
+		render_counter();
+	}
+});
 
 let canvas = document.getElementById('image-canvas');
 let ctx = canvas.getContext('2d');
