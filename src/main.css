@@ -13,4 +13,9 @@
 #image-canvas {
 	grid-area: img;
 	z-index: 1;
+	cursor: crosshair;
+}
+
+#mark-counter::before {
+	content: 'Number of Dots: ';
 }

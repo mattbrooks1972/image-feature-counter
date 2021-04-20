@@ -5,21 +5,33 @@
 	<script type="text/javascript" src = "./main.js" defer></script>
 </head>
 <body>
-	<input id = "image-input" type = "file" accept = "image/*"/>
-	<input id = "input-image-opacity-slider" type = "range" min = "0" max = "100" value = "80"/>
+	<header>
+		<a href = "https://github.com/mattbrooks1972/image-feature-counter">GitHub Repository</a>
+		<p>
+			This tool allows you to upload an image and click on it to create marks, which will be automatically counted.
+			This could be useful for counting the number of features on an uploaded image.
+			Additionally, the color and size of the marks can be changed, the opacity of the under image can be changed, and marks (and their count) can be undone.
+		</p>
+	</header>
+	<div id = "mark-container">
+		<span id = "mark-counter">0</span>
+		<label>Mark Color
+			<input id = "mark-color" type = "color"/>
+		</label>
+		<button id = "mark-undo" type = "button">Undo</button>
+		<label>Mark Size
+			<input id = "mark-size" type = "number" min = "1" step = "1" placeholder = "2"/>
+		</label>
+	</div>
+	<label>Image Input
+		<input id = "image-input" type = "file" accept = "image/*"/>
+	</label>
+	<label>Image Opacity
+		<input id = "input-image-opacity-slider" type = "range" min = "0" max = "100" value = "80"/>
+	</label>
 	<div id = "image-container">
 		<img id = "image-display"/>
 		<canvas id = "image-canvas"></canvas>
-	</div>
-	<div id = "mark-container">
-		<span id = "mark-counter">0</span>
-		<input id = "mark-color" type = "color"/>
-		<button id = "mark-undo" type = "button">Undo</button>
-		<select id = "mark-size">
-			<option value = "small">Small</option>
-			<option value = "medium" selected>Medium</option>
-			<option value = "large">Large</option>
-		</select>
 	</div>
 </body>
 </html>
