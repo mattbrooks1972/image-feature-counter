@@ -60,24 +60,28 @@ function push_mark() {
 function render_canvas() {
 	ctx.clearRect(0, 0, canvas.width, canvas.height);
 	let rect = {h: 0, w: 0};
+	let offset = 0;
 	switch(marker.size) {
 		case 'small':
 			rect.h = 2;
 			rect.w = 2;
+			offset = 1;
 			break;
 		case 'medium':
 			rect.h = 4;
 			rect.w = 4;
+			offset = 2;
 			break;
 		case 'large':
 			rect.h = 8;
 			rect.w = 8;
+			offset = 4;
 			break;
 	}
 	for(let i = 0; i < marker.marks.length; i++) {
 		ctx.beginPath();
 		ctx.fillStyle = marker.color;
-		ctx.rect(marker.marks[i].x, marker.marks[i].y, rect.h, rect.w);
+		ctx.rect(marker.marks[i].x - offset, marker.marks[i].y - offset, rect.h, rect.w);
 		ctx.fill();
 	}
 }
