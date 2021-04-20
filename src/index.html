@@ -13,16 +13,6 @@
 			Additionally, the color and size of the marks can be changed, the opacity of the under image can be changed, and marks (and their count) can be undone.
 		</p>
 	</header>
-	<label>Image Input
-		<input id = "image-input" type = "file" accept = "image/*"/>
-	</label>
-	<label>Image Opacity
-		<input id = "input-image-opacity-slider" type = "range" min = "0" max = "100" value = "80"/>
-	</label>
-	<div id = "image-container">
-		<img id = "image-display"/>
-		<canvas id = "image-canvas"></canvas>
-	</div>
 	<div id = "mark-container">
 		<span id = "mark-counter">0</span>
 		<label>Mark Color
@@ -32,6 +22,16 @@
 		<label>Mark Size
 			<input id = "mark-size" type = "number" min = "1" step = "1" placeholder = "2"/>
 		</label>
+	</div>
+	<label>Image Input
+		<input id = "image-input" type = "file" accept = "image/*"/>
+	</label>
+	<label>Image Opacity
+		<input id = "input-image-opacity-slider" type = "range" min = "0" max = "100" value = "80"/>
+	</label>
+	<div id = "image-container">
+		<img id = "image-display"/>
+		<canvas id = "image-canvas"></canvas>
 	</div>
 </body>
 </html>
